@@ -35,9 +35,6 @@ var sTrain = new Train('The S Train', sStations);
 var trains = [lTrain, nTrain, sixTrain, gTrain, sTrain];
 var trainNames = "";
 
-var msg = "Which train would you like to get on?\n" + displayLines();
-var startTrain = prompt(msg);
-
 // function displayLines() {
 //   var trainNames = "";
 //   for (var i = 0; i < trains.length; i++) {
@@ -47,7 +44,9 @@ var startTrain = prompt(msg);
 //   return trainNames.trim();
 // }
 // ^^ Replacing displayLines (naming trains) ^^
-// with the _.each function
+// with the _.each function *trainId*
+  //_.each(list, iterator, [context])
+_.each(trains, function(train){ trainNames += '\n' + train.name;});
 
 function trainName(train){
   return train.name + "\n";
@@ -80,6 +79,11 @@ function displayStations() {
   }
   return trainStations.trim();
 }
+
+// Prompts to go at the end of the file to ensure
+// function / variable definitions
+var msg = "Which train would you like to get on?\n" + displayLines();
+var startTrain = prompt(msg);
 
 var msg2 = "Which station would you like to get on?\n" + displayStations();
 var startStation = prompt(msg2);
