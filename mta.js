@@ -48,9 +48,12 @@ var trainNames = "";
   //_.each(list, iterator, [context])
 _.each(trains, function(train){ trainNames += '\n' + train.name;});
 
-function trainName(train){
-  return train.name + "\n";
-}
+var msg = "Which train would you like to get on?\n" + trainNames;
+var startTrain = prompt(msg);
+
+// Taking input to declare startLine
+// _.find(list, iterator, [context])
+var startLine = _.find(trains, function(input) {return startTrain === input.name;}); //finds matching train with name value
 
 // Class examples of forEach and map
 // function forEach(array, func) {
@@ -80,10 +83,10 @@ function displayStations() {
   return trainStations.trim();
 }
 
-// Prompts to go at the end of the file to ensure
-// function / variable definitions
-var msg = "Which train would you like to get on?\n" + displayLines();
-var startTrain = prompt(msg);
+// Moving prompts accordingly to the process in which a
+// user commits their input
+
+// Changing the variable called in displaying the prompt VVVVVV
 
 var msg2 = "Which station would you like to get on?\n" + displayStations();
 var startStation = prompt(msg2);
