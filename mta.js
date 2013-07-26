@@ -34,6 +34,7 @@ var sTrain = new Train('The S Train', sStations);
 
 var trains = [lTrain, nTrain, sixTrain, gTrain, sTrain];
 var trainNames = "";
+var stationElements = "";
 
 // function displayLines() {
 //   var trainNames = "";
@@ -55,6 +56,32 @@ var startTrain = prompt(msg);
 // _.find(list, iterator, [context])
 var startLine = _.find(trains, function(input) {return startTrain === input.name;}); //finds matching train with name value
 
+
+function startLineStations () {
+  _.each(startLine.stations, function(ele) {stationElements += '\n' + ele;});
+  return stationElements;
+}
+var msg2 = "Which station would you like to get on?\n" + startLineStations();
+var startStation = prompt(msg2);
+  // Replacing with ._each to display the
+  // individual array elements
+// function displayStations() {
+//   var train = null;
+//   for (var j = 0; j < trains.length; j++) {
+//     if (trains[j].name === startTrain) {
+//       train = trains[j];
+//     }
+//   }
+//   var trainStations = "";
+//   for (var k = 0; k < train.stations.length; k++) {
+//     trainStations += train.stations[k] + "\n";
+//   }
+//   return trainStations.trim();
+// }
+
+// Moving prompts accordingly to the process in which a
+// user commits their input
+
 // Class examples of forEach and map
 // function forEach(array, func) {
 //   for (var i = 0; i < array.length; i++) {
@@ -68,25 +95,3 @@ var startLine = _.find(trains, function(input) {return startTrain === input.name
 //   }
 //   return newArray;
 // }
-
-function displayStations() {
-  var train = null;
-  for (var j = 0; j < trains.length; j++) {
-    if (trains[j].name === startTrain) {
-      train = trains[j];
-    }
-  }
-  var trainStations = "";
-  for (var k = 0; k < train.stations.length; k++) {
-    trainStations += train.stations[k] + "\n";
-  }
-  return trainStations.trim();
-}
-
-// Moving prompts accordingly to the process in which a
-// user commits their input
-
-// Changing the variable called in displaying the prompt VVVVVV
-
-var msg2 = "Which station would you like to get on?\n" + displayStations();
-var startStation = prompt(msg2);
